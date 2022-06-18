@@ -1,3 +1,4 @@
-<?php 
+<?php
 
-echo "Hello World";
+require "koneksi.php";
+print_r($conn);
