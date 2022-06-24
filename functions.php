@@ -1,11 +1,12 @@
-<?php 
+<?php
 
-// Buat Koneksi ke database
-$conn = mysqli_connect("localhost", "root", "", "belajar");
+function koneksi()
+{
+    mysqli_connect("localhost", "root", "", "buku");
+}
 
-// Membuat pengkondisian jika koneksi gagal berhasil/gagal
-if (!$conn) {
-    echo "Koneksi Gagal". mysqli_connect_error();
-}else{
-    echo "Koneksi Berhasil";
+function query($query)
+{
+    $conn = koneksi();
+    $result = mysqli_query($conn, $query);
 }
