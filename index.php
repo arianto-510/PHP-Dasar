@@ -1,3 +1,9 @@
+<?php
+require 'functions.php';
+
+$buku = query("SELECT * FROM buku");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,12 +23,15 @@
             <th>Judul</th>
             <th>Aksi</th>
         </tr>
-        <tr>
-            <td>1</td>
-            <td><img src="img/1.jpg" alt="Gambar 1" height="80"></td>
-            <td>Mahir Bahasa Pemrograman PHP</td>
-            <td><a href="detail.php">Detail</a></td>
-        </tr>
+        <?php $i = 1; ?>
+        <?php foreach ($buku as $bk) : ?>
+            <tr>
+                <td><?= $i++; ?></td>
+                <td><img src="img/<?= $bk['gambar']; ?>" height="80"></td>
+                <td><?= $bk['judul']; ?></td>
+                <td><a style="color: blue; text-decoration: none;" href="detail.php?id=<?= $bk['id']; ?>">Detail</a></td>
+            </tr>
+        <?php endforeach; ?>
     </table>
 
 </body>
